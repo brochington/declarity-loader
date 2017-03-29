@@ -15,11 +15,7 @@ if (module.hot) {
 }
 `;
 
-    const newSource = process.env.NODE_ENV === 'development'
-                        ? [prependText, source, appendText].join('\n\n')
-                        : [prependText, source].join('\n\n');
-
-    this.callback(null, newSource);
+    this.callback(null, [prependText, source, appendText].join('\n\n'));
 };
 
 module.exports = transform;
