@@ -1,0 +1,25 @@
+{
+  "name": "declarity-loader",
+  "version": "0.0.1",
+  "description": "A webpack loader for declarity",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf lib",
+    "watch:dev": "npm run clean && webpack --watch",
+    "build": "npm run clean && webpack"
+  },
+  "keywords": ["declarity", "webpack", "declarity-loader"],
+  "author": "Broch Stilley",
+  "license": "MIT",
+  "dependencies": {
+    "babel-runtime": "^6.23.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "webpack": "^2.3.2"
+  }
+}
