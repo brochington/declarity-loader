@@ -5,7 +5,6 @@ function transform(source, map) {
 
     const appendText = `
 if (module.hot) {
-    console.log('resourcePath', ${resourcePath})
     const next = require(${resourcePath})
 
     if (!global.__DECLARITY_HOT_LOADER__) {
