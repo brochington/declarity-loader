@@ -5,15 +5,17 @@ function transform(source, map) {
 
     const appendText = `
 if (module.hot) {
-    const next = require(${resourcePath})
+    var next = require(${resourcePath})
+    var cryptoObj = window.crypto || window.msCrypto; // for IE 11
 
     if (!global.__DECLARITY_HOT_LOADER__) {
         global.__DECLARITY_HOT_LOADER__ = {}
         console.log('Declarity hot loader is active')
     }
+
     global.__DECLARITY_HOT_LOADER__[${resourcePath}] = next;
     module.exports.default.__declarity_location = ${resourcePath}
-    module.exports.default.__declarity_id = window.crypto.getRandomValues(new Uint8Array(20))
+    module.exports.default.__declarity_id = cryptoObj ? cryptoObj.getRandomValues(new Uint8Array(20)) : Math.random();
 }
 `;
 
