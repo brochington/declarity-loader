@@ -7,7 +7,6 @@ function transform(source, map) {
 if (module.hot) {
     var next = require(${resourcePath})
     var cryptoObj = window.crypto || window.msCrypto; // for IE 11
-    console.log(module, module.exports, module.loaded);
 
     if (!global.__DECLARITY_HOT_LOADER__) {
         global.__DECLARITY_HOT_LOADER__ = {}
