@@ -6,9 +6,9 @@ a webpack loader for [Declarity](https://github.com/brochington/declarity)
 npm install --save-dev declarity-loader
 ```
 
-Currently only webpack > 2 is supported.
+Currently only webpack > 4 is supported.
 
-Babel > 6 and [Babel React Preset](https://babeljs.io/docs/plugins/preset-react/) are currently dependencies used in the parsing of JSX syntax.
+Babel > 7 and [Babel React Preset](https://babeljs.io/docs/plugins/preset-react/) are currently dependencies used in the parsing of JSX syntax.
 
 ## Example
 

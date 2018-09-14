@@ -12,6 +12,7 @@ module.exports = {
         library: 'declarity-loader',
         libraryTarget: 'umd'
     },
+    mode: 'production',
     module: {
         rules: [{
             test: /\.js$/,

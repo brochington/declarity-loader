@@ -7,15 +7,22 @@ function transform(source, map) {
 if (module.hot) {
     var next = require(${resourcePath})
     var cryptoObj = window.crypto || window.msCrypto; // for IE 11
+    console.log(module, module.exports, module.loaded);
 
     if (!global.__DECLARITY_HOT_LOADER__) {
         global.__DECLARITY_HOT_LOADER__ = {}
-        console.log('Declarity hot loader is active')
+        console.log('Declarity hot loader is active');
     }
 
     global.__DECLARITY_HOT_LOADER__[${resourcePath}] = next;
-    module.exports.default.__declarity_location = ${resourcePath}
-    module.exports.default.__declarity_id = cryptoObj ? cryptoObj.getRandomValues(new Uint8Array(20)) : Math.random();
+
+    if (module.__proto__ && module.__proto__.exports && module.__proto__.exports.default) {
+      module.__proto__.exports.default.__declarity_location = ${resourcePath}
+      module.__proto__.exports.default.__declarity_id = cryptoObj ? cryptoObj.getRandomValues(new Uint8Array(20)) : Math.random();
+    } else if (module.exports && module.exports.default) {
+      module.exports.default.__declarity_location = ${resourcePath}
+      module.exports.default.__declarity_id = cryptoObj ? cryptoObj.getRandomValues(new Uint8Array(20)) : Math.random();
+    }
 }
 `;
 
