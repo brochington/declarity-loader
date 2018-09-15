@@ -10,9 +10,10 @@ module.exports = {
         filename: 'index.js',
         publicPath: '/lib/',
         library: 'declarity-loader',
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
+        globalObject: "typeof self !== 'undefined' ? self : this"
     },
-    mode: 'production',
+    mode: 'development',
     module: {
         rules: [{
             test: /\.js$/,

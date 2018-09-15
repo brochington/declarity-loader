@@ -5,8 +5,8 @@ function transform(source, map) {
 
     const appendText = `
 if (module.hot) {
-    var next = require(${resourcePath})
-    var cryptoObj = window.crypto || window.msCrypto; // for IE 11
+    var next = require(${resourcePath});
+    var cryptoObj = window ? window.crypto || window.msCrypto : null; // for IE 11
 
     if (!global.__DECLARITY_HOT_LOADER__) {
         global.__DECLARITY_HOT_LOADER__ = {}
